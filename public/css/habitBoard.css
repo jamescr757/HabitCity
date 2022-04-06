@@ -51,6 +51,44 @@
     color: white;
 }
 
+.comments-list {
+    max-height: 200px;
+    overflow: scroll;
+}
+
+#commentInput {
+    width: 244px; /* 320 - 54 - 16 - spacer */
+    border: none;
+    background-color: rgb(42, 137, 16);
+}
+
+::placeholder {
+    color: black;
+}
+
+#commentInput:focus-visible {
+    outline: white solid 1px;
+}
+
+label {
+    min-width: 54px;
+}
+
+form {
+    border-bottom: solid black 2px;
+}
+
+.comment {
+    border-bottom: solid black 2px;
+    display: flex;
+}
+
+.date-span {
+    min-width: 54px;
+    display: flex;
+    align-items: center;
+}
+
 .positive {
     background-color: rgb(42, 137, 16);
 }
