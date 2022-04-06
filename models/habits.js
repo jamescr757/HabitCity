@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING 
         },
         type: {
-            type: DataTypes.STRING 
+            type: DataTypes.STRING
         },
         streakNumber: {
             type: DataTypes.INTEGER,
@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
             references: {
                 model: "User",
                 foreignKey: "id"
-            } 
+            }
         }
     }, {
         freezeTableName: true,
-        timestamps: false 
+        timestamps: false
     })
     Habits.associate = models => {
         Habits.belongsTo(models.User, {
