@@ -4,7 +4,8 @@ const auth = require("../auth");
 
 router.get("/habitBoard", auth, async (req, res) => {
     const records = await db.Habits.findAll({
-        where: { userId: req.session.passport.user }
+        where: { userId: req.session.passport.user },
+        order: [ ["type", "DESC"] ]
     })
     res.render("habitBoard", { habits: records });
 })
