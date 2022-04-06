@@ -25,7 +25,8 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(require("./routes/index"));
+// app.use(require("./routes/index"))
+app.use(require("./routes/manageHabits"))
 
 db.sequelize.sync({ force: false })
 .then(() => {
