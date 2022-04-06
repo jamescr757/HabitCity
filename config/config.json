@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "habitcity",
-    "host": "127.0.0.1",
+    "username": "",
+    "password": "",
+    "database": "",
+    "host": "",
     "dialect": "postgres"
   }
 }
