@@ -31,6 +31,8 @@ app.use(require("./routes/login"));
 // app.use(require("./routes/logout"));
 app.use(require("./routes/loginFailed"));
 app.use(require("./routes/habitBoard"));
+app.use(require('./routes/manageHabits'));
+app.use(require('./routes/comments'));
 
 app.get("/logout", (req, res) => {
     req.session = null;
