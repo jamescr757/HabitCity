@@ -1,4 +1,4 @@
 node_modules/
 seeders/
-configElephant.json
-config/config.json
+config/configElephant.json
+config/
