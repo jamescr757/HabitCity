@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "habitcity",
-    "host": "127.0.0.1",
+    "username": "fqieqnqb",
+    "password": "WqRwqUN66zh8AMJGUnnw3a077nds4pdp",
+    "database": "fqieqnqb",
+    "host": "batyr.db.elephantsql.com",
     "dialect": "postgres"
   }
 }

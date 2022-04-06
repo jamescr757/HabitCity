@@ -26,6 +26,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // app.use(require("./routes/index"));
+app.use(require('./routes/manageHabits'));
+app.use(require('./routes/comments'));
 
 db.sequelize.sync({ force: false })
 .then(() => {
