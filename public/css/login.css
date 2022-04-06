@@ -1,0 +1,13 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form {
+    width: 300px;
+}
+
+#userMessage {
+    display: none;
+}

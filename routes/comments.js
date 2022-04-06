@@ -7,7 +7,7 @@ const db = require('../models')
 
 const findAll = async () => {
     try {
-        let records = await db.Habits.findAll();
+        let records = await db.Comments.findAll();
         return records
     }
     catch (error) {
@@ -15,12 +15,12 @@ const findAll = async () => {
     }
 }
 
-router.get('/manageHabits', async (req, res) => {
+router.get('/comments', async (req, res) => {
     try {
         let records = await findAll(); //[{}, {}, {}]
         console.log(records)
-        res.render('manageHabits', {
-            habits: records
+        res.render('comments', {
+            text: records
         })
     }
     catch (error) {

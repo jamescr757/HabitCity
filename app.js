@@ -25,8 +25,19 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(require("./routes/index"))
-app.use(require("./routes/manageHabits"))
+app.use(require("./routes/index"));
+app.use(require("./routes/register"));
+app.use(require("./routes/login"));
+// app.use(require("./routes/logout"));
+app.use(require("./routes/loginFailed"));
+app.use(require("./routes/habitBoard"));
+app.use(require('./routes/manageHabits'));
+app.use(require('./routes/comments'));
+
+app.get("/logout", (req, res) => {
+    req.session = null;
+    res.redirect("/");
+})
 
 db.sequelize.sync({ force: false })
 .then(() => {
