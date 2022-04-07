@@ -4,6 +4,7 @@
     justify-content: space-evenly;
     width: 70%;
     margin: 0 auto;
+    min-height: 50vh;
 }
 
 .habit-card {
