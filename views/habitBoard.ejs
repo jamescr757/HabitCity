@@ -15,7 +15,7 @@
             <% if (habit.streakNumber === 0) { %>
                 <div id="card-<%= habit.id %>" value="<%= habit.type %>" class="habit-card m-4 rounded shadow neutral">
                     <p class="habit-title"><%= habit.title %></p>
-                    <div class="habit-main" value="<%= JSON.stringify(habit) %>">
+                    <div class="habit-main">
                         <div class="row-buttons">
                             <button value="<%= habit.id %>" class="btn-primary click-btn m-1">-</button>
                             <button value="<%= habit.id %>" class="btn-primary click-btn m-1">+</button>
@@ -30,7 +30,7 @@
                 <% } else if (habit.type === 'positive') { %>
                     <div id="card-<%= habit.id %>" value="<%= habit.type %>" class="habit-card m-4 rounded shadow positive">
                         <p class="habit-title"><%= habit.title %></p>
-                        <div class="habit-main" value="<%= JSON.stringify(habit) %>">
+                        <div class="habit-main">
                             <div class="row-buttons">
                                 <button value="<%= habit.id %>" class="btn-primary click-btn m-1">-</button>
                                 <button value="<%= habit.id %>" class="btn-primary click-btn m-1">+</button>
@@ -45,7 +45,7 @@
             <% } else { %>
                 <div id="card-<%= habit.id %>" value="<%= habit.type %>" class="habit-card m-4 rounded shadow negative">
                     <p class="habit-title"><%= habit.title %></p>
-                    <div class="habit-main" value="<%= JSON.stringify(habit) %>">
+                    <div class="habit-main">
                         <div class="row-buttons">
                             <button value="<%= habit.id %>" class="btn-primary click-btn m-1">-</button>
                             <button value="<%= habit.id %>" class="btn-primary click-btn m-1">+</button>
