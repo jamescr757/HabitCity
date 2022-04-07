@@ -8,4 +8,10 @@ router.get("/", (req, res) => {
 
 router.use("/api", require("./api"));
 
+router.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/login')
+})
+
+
 module.exports = router;
