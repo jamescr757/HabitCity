@@ -19,6 +19,17 @@ const deleteComments = id => {
     })
 }
 
+const postComment = (id, text) => {
+    fetch(`/api/comments/add`, {
+        method: "POST",
+        headers: {"Content-type": "application/json; charset=UTF-8"},
+        body: JSON.stringify({
+            text: text,
+            habitId: id
+        })
+    })
+}
+
 const updateCardClass = (id, color) => {
     const habitCard = document.getElementById(`card-${id}`);
     if (!color) {
@@ -31,6 +42,14 @@ const updateStorageNumber = (id, number) => {
     const dataObj = JSON.parse(sessionStorage.getItem(`${id}`));
     dataObj.streakNumber = number;
     sessionStorage.setItem(`${id}`, JSON.stringify(dataObj));
+}
+
+const updateStorageObj = (id, text) => {
+    const dataObj = JSON.parse(sessionStorage.getItem(`${id}`));
+    dataObj.comments.unshift(text);
+    dataObj.dates.unshift(todaysDate());
+    sessionStorage.setItem(`${id}`, JSON.stringify(dataObj));
+    return dataObj;
 }
 
 const modifyNumber = (type, numberElement) => {
@@ -49,13 +68,18 @@ const modifyStreakNumber = (id, type) => {
     return number;
 }
 
-const renderComments = (cardElement, dataObj, habitId) => {
+const todaysDate = () => {
     const today = (new Date()).toJSON();
+    return today.slice(5, 7) + "/" + today.slice(8, 10);
+}
+
+const renderComments = (cardElement, dataObj, habitId) => {
+    const color = document.getElementById(`card-${habitId}`).className.split(" ").at(-1);
     const html = [`
     <div class="comments-list">
-        <form class="mx-2 py-1">
-            <label for="commentInput">${today.slice(5, 7) + "/" + today.slice(8, 10)} - </label>
-            <input class="rounded" type="text" name="comment" id="commentInput" placeholder="Add comment here...">
+        <form class="mx-2 py-1" value="${habitId}">
+            <label for="commentInput">${todaysDate()} - </label>
+            <input class="rounded ${color}" type="text" name="comment" id="commentInput" placeholder="Add comment here...">
         </form>`];
     for (let idx = 0; idx < dataObj.dates.length; idx++) {
         html.push(`
@@ -131,6 +155,13 @@ cardContainer.addEventListener("click", async event => {
             );
         }
     }
+})
+
+cardContainer.addEventListener("submit", async event => {
+    event.preventDefault();
+    const data = updateStorageObj(event.target.attributes.value.value, event.target.children[1].value);
+    renderComments(document.querySelector(`#card-${event.target.attributes.value.value} .habit-main`), data, event.target.attributes.value.value);
+    postComment(event.target.attributes.value.value, event.target.children[1].value);
 })
 
 const onPageVisit = async () => {

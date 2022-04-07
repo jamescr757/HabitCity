@@ -56,17 +56,16 @@
     overflow: scroll;
 }
 
-#commentInput {
+input {
     width: 244px; /* 320 - 54 - 16 - spacer */
     border: none;
-    background-color: rgb(42, 137, 16);
 }
 
 ::placeholder {
     color: black;
 }
 
-#commentInput:focus-visible {
+input:focus-visible {
     outline: white solid 1px;
 }
 
@@ -94,7 +93,7 @@ form {
 }
 
 .negative {
-    background-color: rgba(186, 20, 20, 0.882);
+    background-color: rgb(207, 16, 16);
 }
 
 .neutral {
