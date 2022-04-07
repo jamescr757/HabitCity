@@ -46,6 +46,10 @@
     box-shadow: none;
 }
 
+.bottom-btn:focus, .bottom-btn:active, .bottom-btn:active:focus {
+    box-shadow: none;
+}
+
 .streak-number {
     text-align: center;
     color: white;
@@ -88,12 +92,24 @@ form {
     align-items: center;
 }
 
+.btn-neutral {
+    background-color: #5b8e7d;
+}
+
+.btn-positive {
+    background-color: #bc4b51;
+}
+
+.btn-negative {
+    background-color: #8cb369;
+}
+
 .positive {
-    background-color: rgb(42, 137, 16);
+    background-color: #8cb369;
 }
 
 .negative {
-    background-color: rgb(207, 16, 16);
+    background-color: #bc4b51;
 }
 
 .neutral {

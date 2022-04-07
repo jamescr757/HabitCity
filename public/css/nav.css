@@ -1,0 +1,19 @@
+nav {
+    background-color: #5b8e7d;
+}
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-nav a {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.navbar-nav a:hover, .navbar-nav a:focus {
+    color: white;
+    font-weight: 500;
+}

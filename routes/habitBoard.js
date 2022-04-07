@@ -7,7 +7,10 @@ router.get("/habitBoard", auth, async (req, res) => {
         where: { userId: req.session.passport.user },
         order: [ ["type", "DESC"] ]
     })
-    res.render("habitBoard", { habits: records });
+    res.render("habitBoard", { 
+        habits: records,
+        noHabits: records.length ? false : true 
+    });
 })
 
 module.exports = router;

@@ -91,8 +91,8 @@ const renderComments = (cardElement, dataObj, habitId) => {
     html.push(`
         </div>
         <div class="row-buttons">
-            <button value="${habitId}" class="btn btn-danger m-1">Clear</button>
-            <button value="${habitId}" class="btn btn-success m-1">Streak</button>
+            <button value="${habitId}" class="btn btn-primary m-1">Clear</button>
+            <button value="${habitId}" class="btn btn-primary m-1">Streak</button>
         </div>`);
     cardElement.innerHTML = html.join("");
 }
@@ -105,8 +105,8 @@ const renderCardFront = (cardElement, dataObj, habitId) => {
     </div>
     <p id="streak-${habitId}" class="streak-number display-3">${dataObj.streakNumber}</p>
     <div class="row-buttons">
-        <button value="${habitId}" class="btn btn-danger m-1">Reset</button>
-        <button value="${habitId}" class="btn btn-success m-1">Comments</button>
+        <button value="${habitId}" class="btn btn-primary m-1">Reset</button>
+        <button value="${habitId}" class="btn btn-primary m-1">Comments</button>
     </div>`;
     cardElement.innerHTML = html;
 }
@@ -191,8 +191,8 @@ Habit card comments html layout
         </div>
     </div>
     <div class="row-buttons">
-        <button value="<%= habit.id %>" class="btn btn-danger m-1">Clear</button>
-        <button value="<%= habit.id %>" class="btn btn-success m-1">Streak</button>
+        <button value="<%= habit.id %>" class="btn btn-primary m-1">Clear</button>
+        <button value="<%= habit.id %>" class="btn btn-primary m-1">Streak</button>
     </div>
 </div>
 */
