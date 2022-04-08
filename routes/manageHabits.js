@@ -63,7 +63,7 @@ router.put('/manageHabits/:id', async (req, res) => {
                 id: id
             }
         });
-        let records = await findAll();
+        let records = await findAll(req);
         res.json(records);
         
     } catch (err) {
