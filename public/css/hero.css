@@ -7,7 +7,6 @@
 .header img {
     width: 100%;
     height: auto;
-    min-height: 50vh;
     z-index: 0;
 }
 
@@ -35,4 +34,110 @@
     font-size: 5rem;
     z-index: 2;
     font-family: 'Rubik Wet Paint', cursive;
+}
+
+@media only screen and (max-width: 1032px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 60vh;
+    }
+
+    .header .title {
+        align-items: flex-end;
+    }
+
+    .header h1 {
+        color: white;
+        padding-bottom: 2rem;
+    }
+
+}
+
+@media only screen and (max-width: 950px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 55vh;
+    }
+
+}
+
+@media only screen and (max-width: 870px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 50vh;
+    }
+
+}
+
+@media only screen and (max-width: 790px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 45vh;
+    }
+
+    .header h1 {
+        padding-bottom: 0.5rem;
+    }
+
+}
+
+@media only screen and (max-width: 710px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 40vh;
+    }
+
+    .header h1 {
+        padding-bottom: 0;
+    }
+
+}
+
+@media only screen and (max-width: 635px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 35vh;
+    }
+
+    .header h1 {
+        padding-bottom: 0rem;
+        font-size: 4rem;
+    }
+
+}
+
+@media only screen and (max-width: 555px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 30vh;
+    }
+
+    .header h1 {
+        font-size: 3.5rem;
+    }
+
+}
+
+@media only screen and (max-width: 475px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 25vh;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+    }
+
+}
+
+@media only screen and (max-width: 395px) {
+    
+    .header, .header .opacity, .header .title {
+        height: 20vh;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
 }

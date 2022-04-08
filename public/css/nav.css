@@ -9,11 +9,15 @@ nav {
 }
 
 .navbar-nav a {
-    color: white;
+    color: white !important;
     font-size: 1.25rem;
 }
 
 .navbar-nav a:hover, .navbar-nav a:focus {
     color: white;
     font-weight: 500;
+}
+
+.navbar-toggler-icon {
+    border-color: white;
 }

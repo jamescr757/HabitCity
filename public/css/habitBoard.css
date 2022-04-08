@@ -117,3 +117,11 @@ form {
     background-color: rgb(152, 146, 146);
 }
 
+@media only screen and (max-width: 1050px) {
+    
+    .card-container {
+        width: 100%;
+    }
+    
+}
+
