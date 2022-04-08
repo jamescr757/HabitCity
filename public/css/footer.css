@@ -28,3 +28,23 @@
 .line-item a:hover {
     text-decoration: underline solid;
 }
+
+@media only screen and (max-width: 650px) {
+    .footer .left {
+        display: none;
+    }
+
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer .middle {
+        margin-top: 1rem;
+    }
+
+    .footer .right {
+        margin: 1rem 0;
+    }
+}
