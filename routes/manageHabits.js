@@ -1,3 +1,4 @@
+
 const express = require('express');
 //const bcrypt = require('bcryptjs'); //hash and salt our password
 const router = express.Router();
@@ -19,9 +20,6 @@ router.get("/manageHabits", auth, async (req, res) => {
     }
 
 })
-
-
-
 // // //delete a record
 router.delete("/manageHabits/:id", async (req, res) => {
     try {
@@ -34,6 +32,23 @@ router.delete("/manageHabits/:id", async (req, res) => {
         console.log(err);
         res.json([])
     }
+})
+
+router.post('/manageHabits', async (req, res) => {
+    try{
+        let title = req.body.title;
+        let id = req.session.passport.user;
+        let type = req.body.type;
+        let insert = await db.Habits.create({title: title, userId: id, type: type})
+
+        let records = await findAll()
+        console.log(records);
+        res.json(records)
+    }
+    catch(error){
+        console.log(error);
+        res.json([])
+      }
 })
 
 
