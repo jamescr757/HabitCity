@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit City - Login</title>
+    <%- include ('partials/headerFont.ejs') %> 
     <link rel="stylesheet" href="/external/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
+    <%- include ('partials/hero.ejs') %> 
     <div class="form-container py-5">
-        <form action="/login" method="POST">
+        <form class="login rounded shadow" action="/login" method="POST">
             <div class="mb-3">
               <label for="emailInput" class="form-label">Email</label>
               <input type="text" class="form-control" id="emailInput" name="email">
@@ -30,6 +34,7 @@
             </div>
         </form>
     </div>
+    <%- include ('partials/footer.ejs') %> 
 
     <script src="/external/js/bootstrap.min.js"></script>
 </body>
