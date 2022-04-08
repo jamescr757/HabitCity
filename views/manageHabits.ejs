@@ -22,7 +22,47 @@
           <% }) %>
       </ul>
     </div>
+
+
+<!--       
+<h1>Edit habit</h1>
+<div>
+  <ul>
+    <% habits.forEach(item=> { %>
+      <li>
+        <label for="<%=item.id%>"><%= item.title %></label>
+        <div class="editHabit">
+        <input type="text" id="<%=item.id%>" name="<%=item.title%>" value="">
+        <button class ="update">Update habit</button>
+        </div>
+        
+          <div>
+            <button><span id="<%=item.id%>" class="habit"> delete</span></button>
+          </div>
+      </li>
+      <% }) %>
+  </ul>
+</div> -->
+
+
+
+<h1>Add habit</h1>
+<div>
+  <!-- <label for=""></label> -->
+  <div class = "addHabit">
+  <input type="text" id="habitInput" name="HabitInput" value="" placeholder="Add a habit to track">
+
+  <input type="radio" id="habitPositive" name="habitType" value="">
+  <label for="habitPositive">Positive</label>
+  <input type="radio" id="habitNegative" name="habitType" value="">
+  <label for="habitNegative">Negative</label>
+
+  <button class ="add">Add habit</button>
+  </div>
+
+</div>
+
+
     <script src="/manageHabitsCL.js"></script>
   </body>
-
 </html>

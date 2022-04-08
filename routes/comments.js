@@ -1,8 +1,8 @@
 const express = require('express');
 //const bcrypt = require('bcryptjs'); //hash and salt our password
 const router = express.Router();
-const db = require('../models')
-
+const db = require('../models');
+const auth = require('../auth/index');
 
 
 const findAll = async () => {
@@ -15,7 +15,7 @@ const findAll = async () => {
     }
 }
 
-router.get('/comments', async (req, res) => {
+router.get('/comments', auth, async (req, res) => {
     try {
         let records = await findAll(); //[{}, {}, {}]
         console.log(records)
