@@ -14,7 +14,11 @@
 <body>
     <%- include ('partials/hero.ejs') %> 
     <div class="form-container py-5">
+        <% if (failMessage) { %> 
+        <form class="loginFailed rounded shadow" action="/login" method="POST">
+        <% } else { %>
         <form class="login rounded shadow" action="/login" method="POST">
+        <% } %>
             <div class="mb-3">
               <label for="emailInput" class="form-label">Email</label>
               <input type="text" class="form-control" id="emailInput" name="email">

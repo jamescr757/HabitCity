@@ -17,6 +17,10 @@ form.login {
     height: 280px;
 }
 
+form.loginFailed {
+    height: 346px;
+}
+
 form.register {
     height: 416px;
 }
