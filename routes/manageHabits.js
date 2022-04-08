@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../models');
 //const auth = require('../auth/index');
 
-const findAll = async ()=>{
+const findAll = async () => {
     let record = await db.Habits.findAll();
     return record;
 }
@@ -16,7 +16,7 @@ router.get("/manageHabits", async (req, res) => {
     } catch (err) {
         console.log(err)
     }
-    
+
 })
 
 
@@ -25,10 +25,10 @@ router.get("/manageHabits", async (req, res) => {
 router.delete("/manageHabits/:id", async (req, res) => {
     try {
         let id = req.params.id
-        await db.Habits.destroy({ where: { id: id} })
+        await db.Habits.destroy({ where: { id: id } })
         let records = await findAll();
         res.json(records);
-       // res.render("manageHabits", { habits: records });
+        // res.render("manageHabits", { habits: records });
     } catch (err) {
         console.log(err);
         res.json([])
@@ -36,4 +36,38 @@ router.delete("/manageHabits/:id", async (req, res) => {
 })
 
 
+//edit
+// router.get('/manageHabits/:id', async (req, res) => {
+//     try {
+//         let id = req.params.id;
+//         let habit = await db.Product.findByPk(id);
+//         let records = await findAll();
+//         res.json(records);
+//     } catch (err) {
+//         console.log(err);
+//         res.json([])
+//     }
+
+// })
+
+router.put('/manageHabits/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const title = req.body.title;
+        //let habit = await db.Habits.findByPk(id);
+        const result = await db.Habits.update({
+            title: title,
+        }, {
+            where: {
+                id: id
+            }
+        });
+        let records = await findAll();
+        res.json(records);
+        
+    } catch (err) {
+        console.log(err);
+        res.json([])
+    }
+})
 module.exports = router;

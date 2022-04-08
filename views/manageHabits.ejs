@@ -14,14 +14,39 @@
       <ul>
         <% habits.forEach(item=> { %>
           <li>
-            <%= item.title %>
-              <div>
+            <label id=<%=item.id %> class="<%= item.title %>" for="<%= item.title %>">
+              <%= item.title %>
+            </label>
                 <button><span id="<%=item.id%>" class="habit"> delete</span></button>
-              </div>
+                <button class="editBtn" id=<%=item.id %>>Edit</button>
           </li>
           <% }) %>
-      </ul>
+          </ul>
+              <form class="mainForm" id="habitForm" action="/manageHabits" method="GET">
+                <label for="editButton"></label>
+                <input type="hidden" name="habitId" />
+                <input id="updateInput" type="text" name="habitName" />
+                <input type="submit" id="submit" value="Update" />
+              </form>
     </div>
+    
+        <!-- <ul>
+          <% habits.forEach(item=> { %>
+            <li>
+              <label class ="<%= item.title %>" for="<%= item.title %>">
+                <%= item.title %>
+              </label>
+              <button class="editBtn" id=<%=item.id %>>Edit</button>
+              <button>Delete</button>  
+            </li>
+            <% }) %>
+        </ul> 
+        <form class="mainForm">
+        <input type="hidden" name="habitId" />
+        <input type="text" name="habitName" />
+        <input type="submit" id="submit" value="Update" />
+      </form>
+    </form> -->
     <script src="/manageHabitsCL.js"></script>
   </body>
 
