@@ -60,8 +60,6 @@ addButton.addEventListener('click', async (e) => {
             //receive all of the habits in the database, including the new habits
             let records = await results.json();
             refresh(records);
-            //console.log(record)
-            //console.log(results)
             habitInput.value = "";
         }
     
@@ -69,7 +67,6 @@ addButton.addEventListener('click', async (e) => {
         console.log("err", err)
     }
 })
-
 
 const refresh = (arr) => {
     let htmlFragment = ""
