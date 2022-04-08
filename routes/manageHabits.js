@@ -9,7 +9,7 @@ const auth = require('../auth/index');
 router.use(express.urlencoded({extended: false}));
 router.use(express.json());
 
-const findAll = async ()=>{
+const findAll = async () => {
     let record = await db.Habits.findAll();
     return record;
 }
@@ -21,16 +21,16 @@ router.get("/manageHabits", auth, async (req, res) => {
     } catch (err) {
         console.log(err)
     }
-    
+
 })
 // // //delete a record
 router.delete("/manageHabits/:id", async (req, res) => {
     try {
         let id = req.params.id
-        await db.Habits.destroy({ where: { id: id} })
+        await db.Habits.destroy({ where: { id: id } })
         let records = await findAll();
         res.json(records);
-       // res.render("manageHabits", { habits: records });
+        // res.render("manageHabits", { habits: records });
     } catch (err) {
         console.log(err);
         res.json([])
@@ -55,4 +55,38 @@ router.post('/manageHabits', async (req, res) => {
 })
 
 
+//edit
+// router.get('/manageHabits/:id', async (req, res) => {
+//     try {
+//         let id = req.params.id;
+//         let habit = await db.Product.findByPk(id);
+//         let records = await findAll();
+//         res.json(records);
+//     } catch (err) {
+//         console.log(err);
+//         res.json([])
+//     }
+
+// })
+
+router.put('/manageHabits/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const title = req.body.title;
+        //let habit = await db.Habits.findByPk(id);
+        const result = await db.Habits.update({
+            title: title,
+        }, {
+            where: {
+                id: id
+            }
+        });
+        let records = await findAll();
+        res.json(records);
+        
+    } catch (err) {
+        console.log(err);
+        res.json([])
+    }
+})
 module.exports = router;
