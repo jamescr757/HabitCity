@@ -41,7 +41,7 @@ router.post('/manageHabits', async (req, res) => {
         let type = req.body.type;
         let insert = await db.Habits.create({title: title, userId: id, type: type})
 
-        let records = await findAll()
+        let records = await findAll(req);
         console.log(records);
         res.json(records)
     }
