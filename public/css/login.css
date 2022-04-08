@@ -1,11 +1,24 @@
 .form-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    min-height: 70vh;
 }
 
 form {
-    width: 300px;
+    background-color: rgb(231, 228, 228);
+    border: solid black 1px;
+    padding: 1rem;
+    width: 330px;
+}
+
+form.login {
+    height: 280px;
+}
+
+form.register {
+    height: 416px;
 }
 
 #userMessage {
