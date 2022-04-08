@@ -59,9 +59,10 @@ addButton.addEventListener('click', async (e) => {
 
             //receive all of the habits in the database, including the new habits
             let records = await results.json();
-            reload(records);
+            refresh(records);
             //console.log(record)
             //console.log(results)
+            habitInput.value = "";
         }
     
     catch (err) {
@@ -69,19 +70,7 @@ addButton.addEventListener('click', async (e) => {
     }
 })
 
-const reload = (arr)=>{
-    let htmlFragment = ""
-    arr.forEach(obj => {
-        htmlFragment += `
-        <li>
-            <label for=${obj.id}>${obj.title}</label>
-            <div>
-            <button><span id=${obj.id} class="habit"> delete</span></button>
-          </div>
-            </li>`
-    })
-    ul.innerHTML = htmlFragment
-    }
+
 const refresh = (arr) => {
     let htmlFragment = ""
     arr.forEach(obj => {

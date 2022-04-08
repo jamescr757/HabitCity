@@ -5,18 +5,15 @@ const router = express.Router();
 const db = require('../models');
 const auth = require('../auth/index');
 
-//scrape from header for our post
-router.use(express.urlencoded({extended: false}));
-router.use(express.json());
-
-const findAll = async () => {
-    let record = await db.Habits.findAll();
-    return record;
+const findAll = async req => {
+    return await db.Habits.findAll({
+        where: { userId: req.session.passport.user }
+    });
 }
 
 router.get("/manageHabits", auth, async (req, res) => {
     try {
-        const records = await findAll();
+        const records = await findAll(req);
         res.render("manageHabits", { habits: records });
     } catch (err) {
         console.log(err)
@@ -27,8 +24,8 @@ router.get("/manageHabits", auth, async (req, res) => {
 router.delete("/manageHabits/:id", async (req, res) => {
     try {
         let id = req.params.id
-        await db.Habits.destroy({ where: { id: id } })
-        let records = await findAll();
+        await db.Habits.destroy({ where: { id: id} })
+        let records = await findAll(req);
         res.json(records);
         // res.render("manageHabits", { habits: records });
     } catch (err) {
@@ -44,7 +41,7 @@ router.post('/manageHabits', async (req, res) => {
         let type = req.body.type;
         let insert = await db.Habits.create({title: title, userId: id, type: type})
 
-        let records = await findAll()
+        let records = await findAll(req);
         console.log(records);
         res.json(records)
     }
@@ -67,7 +64,7 @@ router.put('/manageHabits/:id', async (req, res) => {
                 id: id
             }
         });
-        let records = await findAll();
+        let records = await findAll(req);
         res.json(records);
     } catch (err) {
         console.log(err);
