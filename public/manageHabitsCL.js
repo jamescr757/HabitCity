@@ -28,11 +28,11 @@ const refresh = (arr) => {
         htmlFragment += `
     <li>
             <label class=${obj.title} for=${obj.title}">
-              ${obj.title}
+            ${obj.title}
             </label>
                 <button><span id=${obj.id} class="habit"> delete</span></button>
                 <button class="editBtn" id=${obj.id}>Edit</button>
-          </li>`
+        </li>`
     })
     ul.innerHTML = htmlFragment
 }
