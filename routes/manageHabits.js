@@ -20,7 +20,7 @@ router.get("/manageHabits", auth, async (req, res) => {
     }
 
 })
-// // //delete a record
+//delete record
 router.delete("/manageHabits/:id", async (req, res) => {
     try {
         let id = req.params.id
@@ -51,26 +51,12 @@ router.post('/manageHabits', async (req, res) => {
       }
 })
 
-
-//edit
-// router.get('/manageHabits/:id', async (req, res) => {
-//     try {
-//         let id = req.params.id;
-//         let habit = await db.Product.findByPk(id);
-//         let records = await findAll();
-//         res.json(records);
-//     } catch (err) {
-//         console.log(err);
-//         res.json([])
-//     }
-
-// })
-
+//update record
 router.put('/manageHabits/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const title = req.body.title;
-        //let habit = await db.Habits.findByPk(id);
+        console.log(req.body);
         const result = await db.Habits.update({
             title: title,
         }, {
@@ -80,10 +66,9 @@ router.put('/manageHabits/:id', async (req, res) => {
         });
         let records = await findAll(req);
         res.json(records);
-        
     } catch (err) {
         console.log(err);
-        res.json([])
+        res.json(["this is an err"])
     }
 })
 module.exports = router;
