@@ -94,8 +94,10 @@ ul.addEventListener('click', async (e) => {
         e.preventDefault();
         if (e.target.className === "m-1 btn btn-outline-success editBtn") {
             let updateBtn = document.querySelector('#submit');
+            let updateInput = document.querySelector("#updateInput");
             //console.log(updateBtn);
             updateBtn.disabled = false;
+            updateInput.disabled = false;
             let primaryKey = e.target.id;
             value = e.target.value;
             localStorage.key = primaryKey;
@@ -118,6 +120,7 @@ ul.addEventListener('click', async (e) => {
         updateBtn.disabled = true;
         console.log("checking form")
         let updateInput = document.querySelector("#updateInput");
+        updateInput.disabled = true;
         let value = updateInput.value;
         let label = document.querySelectorAll("label");
         console.log("label",label.innerText);
