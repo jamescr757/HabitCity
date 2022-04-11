@@ -70,3 +70,23 @@
     display:flex;
     justify-content: flex-end;
 }
+
+@media only screen and (max-width: 450px) {
+    .list-items.list-group-item {
+        display:block;
+    }
+    .radiosAndButton {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .add {
+        margin-top: 16px;
+        width: 100%;
+    }
+    #submit {
+        width: 100%;
+    }
+    .updateButtonContainer {
+        margin-top: 0px;
+    }
+}

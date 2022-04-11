@@ -56,7 +56,7 @@
     color: white;
 }
 
-.comments-list {
+.comments-list{
     max-height: 200px;
     overflow-y: scroll;
 }
@@ -64,6 +64,8 @@
 .comments-list::-webkit-scrollbar {
     width: 0px;
 }
+.comments-list::-webkit-scrollbar {
+    width: 0px;}
 
 input {
     width: 244px; /* 320 - 54 - 16 - spacer */
