@@ -3,7 +3,7 @@ let ul = document.querySelector('ul');
 ul.addEventListener('click', async (e) => {
     try {
         e.preventDefault();
-        if (e.target.className === "habit") {
+        if (e.target.className === "m-1 btn btn-outline-danger habit") {
             let primaryKey = e.target.id;
             let url = `/manageHabits/${primaryKey}`;
             let results = await fetch(url, {
@@ -72,13 +72,15 @@ const refresh = (arr) => {
     let htmlFragment = ""
     arr.forEach(obj => {
         htmlFragment += `
-    <li>
-            <label class=${obj.title} for=${obj.title}">
-              ${obj.title}
-            </label>
-                <button><span id=${obj.id} class="habit"> delete</span></button>
-                <button class="editBtn" id=${obj.id}>Edit</button>
-          </li>`
+          <li class="list-items list-group-item">
+                  <label id=${obj.id} class=${obj.title} for=${obj.title}>
+                        ${obj.title}
+                  </label>
+                  <div>
+                    <button value="${obj.title}" class="m-1 btn btn-outline-success editBtn" id=${obj.id}>Edit</button>
+                    <button id=${obj.id} class="m-1 btn btn-outline-danger habit"> Delete</button>
+                  </div>
+                </li>`
     })
     ul.innerHTML = htmlFragment
 }
@@ -90,14 +92,21 @@ ul.addEventListener('click', async (e) => {
     //console.log(e)
     try {
         e.preventDefault();
-        if (e.target.className === "editBtn") {
+        if (e.target.className === "m-1 btn btn-outline-success editBtn") {
+            let updateBtn = document.querySelector('#submit');
+            //console.log(updateBtn);
+            updateBtn.disabled = false;
             let primaryKey = e.target.id;
+            value = e.target.value;
             localStorage.key = primaryKey;
             let url = `/manageHabits/${primaryKey}`;
-            console.log("primaryKey",primaryKey)
+           // console.log("primaryKey", primaryKey);
             let parentEl = e.target.parentElement;
             //console.log(parentEl);
-            updateForm["habitName"].value = parentEl.querySelector("label").innerText;
+            updateForm["habitName"].value = value;
+           // console.log(document.querySelector(`#${primaryKey}`).innerText)
+            
+            
         }
     } catch (err) {
         console.log("error on edit", err)
@@ -125,4 +134,5 @@ ul.addEventListener('click', async (e) => {
         let records = await results.json();
         console.log("records",records)
         refresh(records);
+        updateInput.value = "";
     });
