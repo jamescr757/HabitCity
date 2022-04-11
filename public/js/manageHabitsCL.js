@@ -3,7 +3,7 @@ let ul = document.querySelector('ul');
 ul.addEventListener('click', async (e) => {
     try {
         e.preventDefault();
-        if (e.target.className === "habit") {
+        if (e.target.className === "m-1 btn btn-outline-danger habit") {
             let primaryKey = e.target.id;
             let url = `/manageHabits/${primaryKey}`;
             let results = await fetch(url, {
@@ -72,7 +72,7 @@ const refresh = (arr) => {
     let htmlFragment = ""
     arr.forEach(obj => {
         htmlFragment += `
-    <li>
+    <li class="list-group-item">
             <label class=${obj.title} for=${obj.title}">
               ${obj.title}
             </label>
@@ -125,4 +125,5 @@ ul.addEventListener('click', async (e) => {
         let records = await results.json();
         console.log("records",records)
         refresh(records);
+        updateInput.value = "";
     });
