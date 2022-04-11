@@ -72,13 +72,15 @@ const refresh = (arr) => {
     let htmlFragment = ""
     arr.forEach(obj => {
         htmlFragment += `
-    <li class="list-group-item">
-            <label class=${obj.title} for=${obj.title}">
-              ${obj.title}
-            </label>
-                <button><span id=${obj.id} class="habit"> delete</span></button>
-                <button class="editBtn" id=${obj.id}>Edit</button>
-          </li>`
+          <li class="list-items list-group-item">
+                  <label id=${obj.id} class=${obj.title} for=${obj.title}>
+                        ${obj.title}
+                  </label>
+                  <div>
+                    <button class="m-1 btn btn-outline-success editBtn" id=${obj.id}>Edit</button>
+                    <button id=${obj.id} class="m-1 btn btn-outline-danger habit"> Delete</button>
+                  </div>
+                </li>`
     })
     ul.innerHTML = htmlFragment
 }
@@ -90,14 +92,15 @@ ul.addEventListener('click', async (e) => {
     //console.log(e)
     try {
         e.preventDefault();
-        if (e.target.className === "editBtn") {
+        if (e.target.className === "m-1 btn btn-outline-success editBtn") {
             let primaryKey = e.target.id;
             localStorage.key = primaryKey;
             let url = `/manageHabits/${primaryKey}`;
             console.log("primaryKey",primaryKey)
             let parentEl = e.target.parentElement;
-            //console.log(parentEl);
-            updateForm["habitName"].value = parentEl.querySelector("label").innerText;
+            value = 
+            updateForm["habitName"].value = document.querySelector(<%= item.title %>).innerText;
+            console.log(document.querySelector(`#${primaryKey}`).innerText);
         }
     } catch (err) {
         console.log("error on edit", err)

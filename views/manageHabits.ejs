@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/hero.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/habitBoard.css">
     <link rel="stylesheet" href="/css/manageHabits.css">
   </head>
 
@@ -46,7 +45,7 @@
               <%= item.title %>
             </label>
               <div>
-                <button class="m-1 btn btn-outline-success editBtn" id=<%=item.id %>>Edit</button>
+                <button value="<%= item.title %>" class="m-1 btn btn-outline-success editBtn" id=<%=item.id %>>Edit</button>
                 <button id="<%=item.id%>" class="m-1 btn btn-outline-danger habit"> Delete</button>
               </div>
           </li>
@@ -57,7 +56,7 @@
                 <input type="hidden" name="habitId" />
                 <input id="updateInput" type="text" name="habitName" placeholder="Make update"/>
                 <div class="updateButtonContainer">
-                  <input type="submit" id="submit" value="Update" class ="btn btn-success add"/>
+                  <input type="submit" id="submit" value="Update" disabled class ="btn btn-success add"/>
                 </div>
               </form>
     </div>
