@@ -77,7 +77,7 @@ const refresh = (arr) => {
                         ${obj.title}
                   </label>
                   <div>
-                    <button class="m-1 btn btn-outline-success editBtn" id=${obj.id}>Edit</button>
+                    <button value="${obj.title}" class="m-1 btn btn-outline-success editBtn" id=${obj.id}>Edit</button>
                     <button id=${obj.id} class="m-1 btn btn-outline-danger habit"> Delete</button>
                   </div>
                 </li>`
@@ -93,14 +93,18 @@ ul.addEventListener('click', async (e) => {
     try {
         e.preventDefault();
         if (e.target.className === "m-1 btn btn-outline-success editBtn") {
+            let updateBtn = document.querySelector('#submit');
+            //console.log(updateBtn);
+            updateBtn.disabled = false;
             let primaryKey = e.target.id;
+            value = e.target.value;
             localStorage.key = primaryKey;
             let url = `/manageHabits/${primaryKey}`;
-            console.log("primaryKey",primaryKey)
+           // console.log("primaryKey", primaryKey);
             let parentEl = e.target.parentElement;
-            value = 
-            updateForm["habitName"].value = document.querySelector(<%= item.title %>).innerText;
-            console.log(document.querySelector(`#${primaryKey}`).innerText);
+            //console.log(parentEl);
+            updateForm["habitName"].value = value;
+           // console.log(document.querySelector(`#${primaryKey}`).innerText)
         }
     } catch (err) {
         console.log("error on edit", err)
@@ -110,6 +114,8 @@ ul.addEventListener('click', async (e) => {
     let form = document.querySelector("#habitForm")
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        let updateBtn = document.querySelector('#submit');
+        updateBtn.disabled = true;
         console.log("checking form")
         let updateInput = document.querySelector("#updateInput");
         let value = updateInput.value;

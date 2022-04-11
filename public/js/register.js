@@ -4,6 +4,7 @@ const nameInput = document.getElementById("nameInput");
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const confirmPassword = document.getElementById("confirmPasswordInput");
+const formTag = document.querySelector("form");
 
 const checkEmail = async email => {
     const record = await fetch(`/api/user/email/${email}`);
@@ -24,6 +25,7 @@ const createUser = async () => {
 
 const renderMessage = message => {
     userMessage.style.display = "block";
+    formTag.className = "rounded shadow registerFailed";
     userMessage.innerText = message;
 }
 
