@@ -105,8 +105,6 @@ ul.addEventListener('click', async (e) => {
             //console.log(parentEl);
             updateForm["habitName"].value = value;
            // console.log(document.querySelector(`#${primaryKey}`).innerText)
-            
-            
         }
     } catch (err) {
         console.log("error on edit", err)
@@ -116,6 +114,8 @@ ul.addEventListener('click', async (e) => {
     let form = document.querySelector("#habitForm")
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        let updateBtn = document.querySelector('#submit');
+        updateBtn.disabled = true;
         console.log("checking form")
         let updateInput = document.querySelector("#updateInput");
         let value = updateInput.value;
