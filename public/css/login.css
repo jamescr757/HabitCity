@@ -25,6 +25,10 @@ form.register {
     height: 416px;
 }
 
+form.registerFailed {
+    height: 452px;
+}
+
 #userMessage {
     display: none;
 }
