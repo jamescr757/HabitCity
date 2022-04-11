@@ -71,22 +71,26 @@
     justify-content: flex-end;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px){
     .list-items.list-group-item {
         display:block;
     }
-    .radiosAndButton {
+    
+    .radiosAndButton{
         flex-direction: column;
         align-items: flex-start;
     }
-    .add {
+
+    .add{
         margin-top: 16px;
         width: 100%;
     }
-    #submit {
+
+    #submit{
         width: 100%;
     }
-    .updateButtonContainer {
+
+    .updateButtonContainer{
         margin-top: 0px;
     }
 }

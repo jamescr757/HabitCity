@@ -64,8 +64,6 @@
 .comments-list::-webkit-scrollbar {
     width: 0px;
 }
-.comments-list::-webkit-scrollbar {
-    width: 0px;}
 
 input {
     width: 244px; /* 320 - 54 - 16 - spacer */
