@@ -1,4 +1,4 @@
-# FullStackProject
+# Habit City
 
 ## Habit tracker that helps you build good habits and routines
 
